@@ -8,6 +8,7 @@ class TreeNode():
         self.right = right
 
     def to_array(self):
+        '''Returns the tree's node values as an array'''
         if not self:
             return []
         output = []
@@ -23,6 +24,7 @@ class TreeNode():
         return output
 
     def from_array(arr):
+        '''Creates a Tree from an array of values.'''
         if not arr:
             return None
 
