@@ -170,7 +170,7 @@ print(f"   {white}printable_tree = TreePrinter(tree)")
 print(f"   {white}print(printable_tree.visualize())\n")
 print(f"{yellow}{printable_tree.visualize()}")
 
-print("\n")
+print("\n", white)
 
 # Create a single TreeNode
 # node = TreeNode(10)
