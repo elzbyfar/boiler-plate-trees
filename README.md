@@ -15,35 +15,37 @@ Here's some boilerplate code for creating and visualizing Binary Trees. Oftentim
 
 - Create a single TreeNode
 
-    ```
-    node = TreeNode(10)
-    print(node)             ->    <**main**.TreeNode object at 0x102684f70>
-    print(node.value)       ->    10
-    print(node.left)        ->    None
-    print(node.right)       ->    None
-    ```
+  ```
+  node = TreeNode(10)
+  print(node)             ->    <**main**.TreeNode object at 0x102684f70>
+  print(node.value)       ->    10
+  print(node.left)        ->    None
+  print(node.right)       ->    None
+  ```
 
 - Create a Binary Tree from an array and print it as an array
-    ```
-    arr = [1,2,3,4,5,6,7,None,9,None,1,2,None,4,5]
-    tree = TreeNode.from_array(arr)
-    print(tree)             ->    <**main**.TreeNode object at 0x1027fe370>
-    print(tree.to_array())  ->    [1, 2, 3, 4, 5, 6, 7, None, 9, None, 1, 2, None, 4, 5]
-    ```
+
+  ```
+  arr = [1, 2, 3, 4, 5, 6, 7, None, 9, None, 1, 2, None, 4, 5]
+  tree = TreeNode.from_array(arr)
+  print(tree)             ->    <**main**.TreeNode object at 0x1027fe370>
+  print(tree.to_array())  ->    [1, 2, 3, 4, 5, 6, 7, None, 9, None, 1, 2, None, 4, 5]
+  ```
 
 - Create a PrintableTree from a Tree instance
-    ```
-    printable_tree = TreePrinter(tree)
-    print(printable_tree.visualize())   ->
 
-                   1
+  ```
+  printable_tree = TreePrinter(tree)
+  print(printable_tree.visualize())   ->
 
-           2               3
+                 1
 
-       4       5       6       7
+         2               3
 
-     -   9   -   1   2   -   4   5
-    ```
+     4       5       6       7
+
+   -   9   -   1   2   -   4   5
+  ```
 
 ## Contribute
 
