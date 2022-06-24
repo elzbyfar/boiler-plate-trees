@@ -1,6 +1,6 @@
 # Boilerplate Binary Tree
 
-Here's some boilerplate code for creating and visualizing Binary Trees. Oftentimes when I'm trying to see the visual representation of a Binary Tree I find myself spending so much time hitting Tab and adjusting the space between nodes that I forget what I was doing in the first place. To help that feeling, my brother and I wrote some boilerplate to save time and will hopefully save some time for you as well. Feel free to use and/or contribute!
+Here's some boilerplate code for creating and visualizing Binary Trees. Oftentimes when I'm trying to create the visual representation of a Binary Tree I find myself spending so much time hitting Tab and adjusting the space between nodes that I forget what I needed the Tree for in the first place. To help with this problem, I wrote some boilerplate to save time and will hopefully save some time for you as well. Feel free to use and/or contribute!
 
 ## Constraints
 
