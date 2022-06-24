@@ -1,4 +1,4 @@
-# Boilerplate Tree Stuff
+# Boilerplate Binary Tree
 
 ## What is this?
 
