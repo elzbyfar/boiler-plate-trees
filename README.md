@@ -14,6 +14,7 @@ Here's some boilerplate code for creating and visualizing Binary Trees. Oftentim
 
   ```
   node = TreeNode(10)
+  
   print(node)             ->    <**main**.TreeNode object at 0x102684f70>
   print(node.value)       ->    10
   print(node.left)        ->    None
@@ -24,7 +25,9 @@ Here's some boilerplate code for creating and visualizing Binary Trees. Oftentim
 
   ```
   arr = [1, 2, 3, 4, 5, 6, 7, None, 9, None, 1, 2, None, 4, 5]
+  
   tree = TreeNode.from_array(arr)
+  
   print(tree)             ->    <**main**.TreeNode object at 0x1027fe370>
   print(tree.to_array())  ->    [1, 2, 3, 4, 5, 6, 7, None, 9, None, 1, 2, None, 4, 5]
   ```
