@@ -101,10 +101,10 @@ class TreePrinter():
             return 0
         return 1 + max(self._find_height_(root.left), self._find_height_(root.right))
 
-    def _spacer_(self: TreeNode, index: int) -> int:
+    def _spacer_(self: TreeNode, row_index: int) -> int:
         '''Creates space_width between node values'''
-        return 2 ** (self.height - index + 1) - 1
+        return 2 ** (self.height - row_index + 1) - 1
 
-    def _indenter_(self: TreeNode, index: int) -> int:
+    def _indenter_(self: TreeNode, row_index: int) -> int:
         '''Creates indent_width to support tree-shaped output'''
-        return 2 ** (self.height - index) - 2
+        return 2 ** (self.height - row_index) - 2
