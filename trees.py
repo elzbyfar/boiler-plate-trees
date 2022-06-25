@@ -57,7 +57,7 @@ class TreeNode():
 class TreePrinter():
     def __init__(self, root=None):
         self.root = root
-        self.height = self._get_height_(root)
+        self.height = self._find_height_(root)
 
     def visualize(self: TreeNode) -> str:
         '''Returns a string formatted as a Binary Tree'''
@@ -96,10 +96,10 @@ class TreePrinter():
             rows.append(row)
         return rows
 
-    def _get_height_(self: TreeNode, root: TreeNode):
+    def _find_height_(self: TreeNode, root: TreeNode):
         if not root:
             return 0
-        return 1 + max(self._get_height_(root.left), self._get_height_(root.right))
+        return 1 + max(self._find_height_(root.left), self._find_height_(root.right))
 
     def _spacer_(self: TreeNode, index: int) -> int:
         '''Creates space_width between node values'''
