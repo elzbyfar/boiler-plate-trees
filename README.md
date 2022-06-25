@@ -7,7 +7,6 @@ Here's some boilerplate code for creating and visualizing Binary Trees. Oftentim
 #### At the moment...
 
 - Works best with single character values and/or None/null values.
-- Hasn't really been tested with Trees taller than 5 levels.
 
 ## How to use
 
