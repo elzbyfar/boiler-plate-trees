@@ -1,6 +1,3 @@
-import math
-
-
 class TreeNode():
     def __init__(self, value, left=None, right=None):
         self.value = value
@@ -58,17 +55,32 @@ class TreeNode():
 
 
 class TreePrinter():
-    def __init__(self, root=None, base_width=3):
+    def __init__(self, root=None):
         self.root = root
-        self.base_width = base_width
+        self.height = self._get_height_(root)
 
     def visualize(self: TreeNode) -> str:
         '''Returns a string formatted as a Binary Tree'''
-        queue = [self.root]
-        levels = []
+        rows = self._split_nodes_by_row_()
+        processed_rows = []
 
-        # visit and process every node in the queue
-        # add each node's value to the row array
+        for i, row in enumerate(rows):
+            indent_width = self._indenter_(i)
+            space_width = self._spacer_(i)
+
+            indent = " " * indent_width
+            joiner = " " * space_width
+            spaced_row = joiner.join(row)
+            processed_rows.append(indent + spaced_row)
+
+        stringified_rows = "\n\n".join(processed_rows)
+        return stringified_rows
+
+    # Private Helpers
+    def _split_nodes_by_row_(self: TreeNode):
+        rows = []
+        queue = [self.root]
+
         while queue:
             queue_size = len(queue)
             row = []
@@ -81,53 +93,18 @@ class TreePrinter():
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
-            levels.append(row)
+            rows.append(row)
+        return rows
 
-        output_rows = []
-        tree_height = len(levels)
-        for i, row in enumerate(levels):
-            indent_width = 0
-            space_width = self._spacer(i, tree_height)
-            if i < tree_height - 1:
-                indent_width = self._indenter_(
-                    i, space_width, levels)
-            if i < tree_height - 2:
-                space_width = indent_width * 3 - 3
+    def _get_height_(self: TreeNode, root: TreeNode):
+        if not root:
+            return 0
+        return 1 + max(self._get_height_(root.left), self._get_height_(root.right))
 
-            indent = " " * indent_width
-            joiner = " " * space_width
-            spaced_row = joiner.join(row)
-            output_rows.append("\t" + indent + spaced_row)
-        return "\n\n".join(output_rows)
-
-    # Private Helpers
-    def __make_odd__(self: TreeNode, n: int) -> int:
-        '''
-        Adds 1 to the space between node values
-        when the space between those values is even.
-        Number of spaces should be odd to allow for symmetry.
-        '''
-
-        return n + 1 if n % 2 == 0 else n
-
-    def _spacer(self: TreeNode, index: int, tree_height: int) -> int:
+    def _spacer_(self: TreeNode, index: int) -> int:
         '''Creates space_width between node values'''
-        row_index = tree_height - index - 1
-        space_width = self.base_width * 2 ** row_index
-        return self.__make_odd__(space_width)
+        return 2 ** (self.height - index + 1) - 1
 
-    def _indenter_(self, index, space_width, node_rows):
+    def _indenter_(self: TreeNode, index: int) -> int:
         '''Creates indent_width to support tree-shaped output'''
-        tree_height = len(node_rows)
-        indent_spaces = math.ceil((space_width - 1) / 2)
-        if index == 0:
-            # edge case handles root row
-            # for best results, add a space for each node in the tree
-            count = sum(len(row) for row in node_rows)
-
-            # indentation for root row should be even number of spaces
-            indent_spaces = count - 0 if count % 2 == 0 else count - 1
-        elif index == tree_height - 2:
-            # edge case handles second to last row
-            indent_spaces -= 1
-        return indent_spaces
+        return 2 ** (self.height - index) - 2
