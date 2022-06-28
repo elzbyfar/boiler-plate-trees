@@ -78,6 +78,8 @@ class TreePrinter():
 
     # Private Helpers
     def _split_nodes_by_row_(self: TreeNode):
+        if self.root is None:
+            return []
         rows = []
         queue = [self.root]
 
